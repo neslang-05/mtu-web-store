@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="MTU Web-Store">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTU Web-Store</title>
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Noto+Sans+Meetei+Mayek:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Meetei+Mayek:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: whitesmoke
+    }
+    li, a, button{
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    header{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 30px 10%;
+        background-color: rgba(3, 20, 40, 2);
+    }
+    .logo{
+        cursor: pointer;
+        margin-right: auto;
+    }
+    .navbar{
+        list-style: none;
+    }
+    .navbar li{
+        display: inline-block;
+        padding: 0px 20px;
+    }
+    .navbar li a{
+        transition: all 0.3s ease 0s;
+    }
+    .navbar li a:hover{
+        color: orange;
+    }
+    button{
+        padding: 9px 25px;
+        background-color: rgba(235, 132, 15, 0.96);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    
+    button:hover{
+        background-color: rgba(237, 130, 42, 0.73);
+    }
+    h1{
+        font-size: 70px;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2.8;
+        letter-spacing: normal;
+        text-align: left;
+        color: #02031e;
+       
+    }
+    .hero-image{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/headphone.jpg");
+        padding: 0px;
+        margin: 0px;
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        backdrop-filter: blur(8px);
+        position: relative;
+    }
+    .hero{
+        background-color: rgb(197, 226, 151);
+        height: 50%;
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h2{
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #050505;
+        font-size: 38px;
+    }
+    .hero-text{
+        margin-left: 150px;
+        margin-top:40px;
+    }
+    .hero-text-2{
+        padding-top: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 16px;
+        padding-bottom: 20px;
+    }
+
+   .content{
+        margin-top: 150px;
+        text align: center;
+        font-family: "Poppins", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 16px;
+        padding-bottom: 20px;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    .item-title{
+        font-family: "Monserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+    .item-description{
+        font-family: "Monserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 16px;
+        padding-bottom: 20px;
+        
+    }
+    .box{
+        
+        height: 30%;
+        width: 30%;
+        padding : 20px;
+        border: 2pt solid rgba(116, 112, 112, 0.612);
+        border-radius: 10px;
+        box-shadow: inset(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    .items{
+        display: flex;
+        justify-content: space-around;
+        padding : 20px; 
+    }
+
+   
+    .Buy{
+        padding: 9px 25px;
+        background-color: rgba(10, 31, 75, 0.934);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .Buy:hover{
+        background-color: rgba(28, 69, 174, 0.779);
+    }
+
+    .Add-to-Cart{
+        padding: 9px 25px;
+        background-color: rgba(24, 75, 10, 0.934);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .Add-to-Cart:hover{
+        background-color: rgba(31, 166, 46, 0.637);
+    }
+
+    
+    .text-content{
+        font-family: "Noto Sans Meetei Mayek", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 16px;
+        padding-bottom: 20px;
+    }
+    footer{
+        background-color: #02031e;
+        
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0c0c0c;
+        font-size: 16px;
+    }
+    .footer-links{
+        list-style-type: none;
+    }
+    .footer-content{
+        display: flex;
+        justify-content: space-around;
+        margin-right: 100px;
+        padding-top: 25px;
+        margin-left: 100px;
+        margin-bottom: 25px;
+        
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #f7f5f5;
+        font-size: 16px;
+    }
+    .copyright{
+        text-align: center;
+        font-size: 16px;
+        font-family:"Poppins";
+        color:#f7f5f5;
+        padding-bottom: 20px;
+
+    }
+    .footer-title{
+        font-family: "Monserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #f7f5f5;
+        font-size:26px;
+    }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="logo.png" class="logo" alt="MTU Web-Store" height="100px"
+        width="100px">
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/New Arivals.html">New Arivals</a></li>
+                <li><a href="/Merch.html">Merch</a></li>
+                <li><a href="/E-Books.html">E-Books</a></li>
+                <li><a href="/Stationary.html">Stationary</a></li>
+                <li><a href="/Accessories.html">Accessories</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button>Login</button></a>
+    </header>
+    <main>
+        <div class="hero-image.jpg">
+            <div class="hero-text">
+              <h1>New Arivals</h1>
+        </div>
+        </div>
+          <div class="content">
+
+            <h2>Popular Products.</h2>
+            <div class="items">
+                <box class="box">
+                    <p class="item-title">Product 1</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquid quaerat sequi quis illum ea similique amet magni consequatur ullam. Culpa qui animi veritatis veniam quasi cupiditate voluptatum eos ad!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 2</p>
+                    <p class="item-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore reprehenderit unde dolor nemo incidunt, vel dolorem harum! Nesciunt voluptatem, dolorem neque ea officia, itaque doloribus, dolorum expedita deserunt harum exercitationem!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 3</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, voluptates magni? Temporibus, asperiores soluta reprehenderit tempora est excepturi suscipit nesciunt ut atque debitis nihil quod laudantium nemo mollitia explicabo dolorum!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+            </div>
+
+            <div class="items">
+                <box class="box">
+                    <p class="item-title">Product 4</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquid quaerat sequi quis illum ea similique amet magni consequatur ullam. Culpa qui animi veritatis veniam quasi cupiditate voluptatum eos ad!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 5</p>
+                    <p class="item-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore reprehenderit unde dolor nemo incidunt, vel dolorem harum! Nesciunt voluptatem, dolorem neque ea officia, itaque doloribus, dolorum expedita deserunt harum exercitationem!
+                        <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet cumque nobis incidunt autem recusandae nam ducimus, explicabo nostrum impedit amet quae facilis sit, molestias nulla minima error adipisci esse reprehenderit!
+                    </p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 6</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, voluptates magni? Temporibus, asperiores soluta reprehenderit tempora est excepturi suscipit nesciunt ut atque debitis nihil quod laudantium nemo mollitia explicabo dolorum!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+            </div>
+
+            <div class="items">
+                <box class="box">
+                    <p class="item-title">Product 7</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquid quaerat sequi quis illum ea similique amet magni consequatur ullam. Culpa qui animi veritatis veniam quasi cupiditate voluptatum eos ad!</p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 8</p>
+                    <p class="item-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore reprehenderit unde dolor nemo incidunt, vel dolorem harum! Nesciunt voluptatem, dolorem neque ea officia, itaque doloribus, dolorum expedita deserunt harum exercitationem!
+                        <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet cumque nobis incidunt autem recusandae nam ducimus, explicabo nostrum impedit amet quae facilis sit, molestias nulla minima error adipisci esse reprehenderit!
+                    </p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+
+                <box class="box">
+                    <p class="item-title">Product 9</p>
+                    <p class="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, voluptates magni? Temporibus, asperiores soluta reprehenderit tempora est excepturi suscipit nesciunt ut atque debitis nihil quod laudantium nemo mollitia explicabo dolorum!
+                    <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet cumque nobis incidunt autem recusandae nam ducimus, explicabo nostrum impedit amet quae facilis sit, molestias nulla minima error adipisci esse reprehenderit!
+                    </p>
+                    <button class="Add-to-Cart">Add to Cart</button>
+                    <button class="Buy">Buy Now</button>
+                </box>
+            </div>
+               
+            </p>
+          </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="Contact Info">
+                <p class="footer-title">Contact Info</p>
+                <p>Takyelpat,Government Polytechnic Campus,<br>
+                    Academic Block 2nd Floor,<br>
+                    Manipur Technical University<br>
+                    Imphal West,Manipur</p><br><br>
+                <p><a href="phoneto:0385-226-593">0385-226-593</a></p><br>
+                <p><a href="mailto:contact@store.mtu.ac.in">contact@store.mtu.ac.in</a></p>
+            </div>
+            <br>
+            <br>
+            <div >
+                <p class="footer-title">Quick Links</p>
+                <ul class="footer-links">
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="#">New Arivals</a></li>
+                    <li><a href="#">Merch</a></li>
+                    <li><a href="#">E-Books</a></li>
+                    <li><a href="#">Stationary</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+           
+        </div>
+        <p class="copyright">© 2024 MTU Web-Store. All rights reserved.<br>
+            Designed by: Room 201(Injiniyars) </p>
+    </footer>
+</body>
+</html>
